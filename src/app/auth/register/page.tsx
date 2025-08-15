@@ -3,48 +3,75 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { baseContainer, cardStyle, titleStyle, inputStyle } from "../../../styles/baseStyles";
+import {
+  baseSplitContainer,
+  formSection,
+  visualSection,
+  cardStyle,
+  titleStyle,
+  inputStyle,
+  buttonStyle,
+} from "@/styles/baseStyles";
 
 export default function RegisterPage() {
   return (
-    <div style={baseContainer}>
-      <motion.div
-        style={cardStyle}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <h2 style={titleStyle}>Register</h2>
-
-        <input style={inputStyle} type="text" placeholder="Full Name" />
-        <input style={inputStyle} type="email" placeholder="Email" />
-        <input style={inputStyle} type="password" placeholder="Password" />
-
-        <motion.button
-          whileHover={{ scale: 1.05, backgroundColor: "#005bb5" }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            width: "100%",
-            padding: "12px",
-            backgroundColor: "#0070f3",
-            color: "#fff",
-            border: "none",
-            borderRadius: "6px",
-            cursor: "pointer",
-            fontSize: "16px",
-            transition: "background-color 0.3s ease",
-          }}
+    <div style={baseSplitContainer}>
+      {/* Left Side - Form */}
+      <div style={formSection}>
+        <motion.div
+          style={cardStyle}
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
         >
-          Sign Up
-        </motion.button>
+          <h2 style={titleStyle}>Register</h2>
 
-        <p style={{ marginTop: "15px", textAlign: "center" }}>
-          Already have an account?{" "}
-          <Link href="/auth/login" style={{ color: "#0070f3", textDecoration: "underline" }}>
-            Login here
-          </Link>
-        </p>
-      </motion.div>
+          <input style={inputStyle} type="text" placeholder="Username" />
+          <input style={inputStyle} type="email" placeholder="Email" />
+          <input style={inputStyle} type="password" placeholder="Password" />
+
+          <button
+            style={buttonStyle}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#043f45")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "#055e68")
+            }
+          >
+            Sign Up
+          </button>
+
+          <p style={{ fontSize: "14px", textAlign: "center" }}>
+            Already have an account?{" "}
+            <Link
+              href="/auth/login"
+              style={{
+                color: "#62a388",
+                textDecoration: "underline",
+                fontWeight: "bold",
+              }}
+            >
+              Login
+            </Link>
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Right Side - Video */}
+      <div style={visualSection}>
+        <video
+  src="/videos/Registration_Link_Provided.mp4"
+  autoPlay
+  loop
+  muted
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  }}
+/>
+      </div>
     </div>
   );
 }

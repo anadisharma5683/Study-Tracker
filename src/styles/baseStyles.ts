@@ -1,48 +1,62 @@
-// styles/baseStyles.ts
-export const baseContainer = {
+import { theme } from "./theme";
+
+export const baseSplitContainer: React.CSSProperties = {
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  minHeight: "100vh",
-  backgroundColor: "#f9f9f9",
-  padding: "20px",
+  height: "100vh",
+  width: "100%",
 };
 
-export const cardStyle = {
+export const formSection: React.CSSProperties = {
+  flex: 1,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: theme.color4,
+};
+
+export const visualSection: React.CSSProperties = {
+  flex: 1,
+  backgroundColor: theme.color1,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: theme.color4,
+  fontSize: "24px",
+  fontWeight: "bold",
+};
+
+export const cardStyle: React.CSSProperties = {
+  width: "100%",
+  maxWidth: "350px",
+  padding: "30px",
   backgroundColor: "#fff",
-  padding: "40px",
   borderRadius: "10px",
   boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-  width: "100%",
-  maxWidth: "500px",
-  boxSizing: "border-box" as const,
+  display: "flex",
+  flexDirection: "column",
+  gap: "15px",
 };
 
-export const titleStyle = {
-  fontSize: "28px",
-  marginBottom: "20px",
-  textAlign: "center" as const,
-  color: "#222",
+export const titleStyle: React.CSSProperties = {
+  textAlign: "center",
+  marginBottom: "10px",
+  color: theme.color1,
 };
 
-export const inputStyle = {
-  width: "100%",
-  padding: "12px",
-  marginBottom: "15px",
+export const inputStyle: React.CSSProperties = {
+  padding: "10px",
   borderRadius: "6px",
-  border: "1px solid #ccc",
-  fontSize: "16px",
-  boxSizing: "border-box" as const,
+  border: `1px solid ${theme.color3}`,
+  fontSize: "14px",
 };
 
-export const buttonStyle = {
-  width: "100%",
-  padding: "12px",
-  backgroundColor: "#0070f3",
-  color: "#fff",
+export const buttonStyle: React.CSSProperties = {
+  padding: "10px",
   border: "none",
   borderRadius: "6px",
+  backgroundColor: theme.color2,
+  color: "#fff",
   fontSize: "16px",
+  fontWeight: "bold",
   cursor: "pointer",
-  transition: "background-color 0.3s ease",
 };
